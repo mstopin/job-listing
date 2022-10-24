@@ -14,7 +14,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "generate:jobs": "ts-node ./scripts/create-jobs-data.ts",
-    "postinstall": "husky install"
+    "postinstall": "husky install && yarn generate:jobs"
   },
   "dependencies": {
     "next": "^12.3.1",
