@@ -1,3 +1,13 @@
+import { PageHero } from '../components/pages/index/PageHero';
+import { Job } from '../components/pages/index/Job';
+
 export default function Index() {
-  return <div />;
+  return (
+    <>
+      <PageHero />
+      <div>
+        <Job />
+      </div>
+    </>
+  );
 }
