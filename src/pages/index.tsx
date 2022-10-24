@@ -16,6 +16,11 @@ export default function Index() {
                 image={{
                   url: 'https://picsum.photos/75',
                 }}
+                salary={{
+                  min: 1500,
+                  max: 8500,
+                  currency: 'USD',
+                }}
                 meta={{
                   createdAt: '1d ago',
                   workTime: 'Full Time',

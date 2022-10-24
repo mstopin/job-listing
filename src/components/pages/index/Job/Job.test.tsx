@@ -12,6 +12,11 @@ describe('Job', () => {
         image={{
           url: '/url',
         }}
+        salary={{
+          min: 1000,
+          max: 10000,
+          currency: 'USD',
+        }}
         meta={{
           createdAt: 'createdAt',
           workTime: 'workTime',
@@ -37,6 +42,12 @@ describe('Job', () => {
     renderJob();
 
     expect(screen.getByText('Title')).toBeInTheDocument();
+  });
+
+  it("should render job's salary", () => {
+    renderJob();
+
+    expect(screen.getByTestId('job__salary')).toBeInTheDocument();
   });
 
   it('should render created at text', () => {
