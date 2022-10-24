@@ -9,12 +9,12 @@ export default function Index() {
       <div className="mt-12 px-6">
         <JobList numberResults={5}>
           {Array.from({ length: 5 }).map((_, idx) => (
-            <div className="mb-12" key={idx}>
+            <div className="mb-12 xl:mb-6" key={idx}>
               <Job
                 company="Company Inc."
                 title="Senior Fullstack Developer"
                 image={{
-                  url: 'https://picsum.photos/75',
+                  url: 'https://picsum.photos/150',
                 }}
                 salary={{
                   min: 1500,
