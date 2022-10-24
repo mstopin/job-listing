@@ -22,7 +22,9 @@ export default function useJobs() {
   const { error, size, setSize } = result;
 
   return {
-    jobs: data ? data.reduce((prev, cur) => [...prev, ...cur.jobs], []) : [],
+    jobs: data
+      ? data.reduce<Job[]>((prev, cur) => [...prev, ...cur.jobs], [])
+      : [],
     total: data ? data[0].total : null,
     isLoading: !data && !error,
     isLoadingMore: (!data && !error) || (size > 0 && data && !data[size - 1]),
