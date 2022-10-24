@@ -1,7 +1,9 @@
 import Image from 'next/future/image';
 
 import { useSalaryText } from '../../../../hooks/useSalaryText';
-import { Job as JobProps } from '../../../../types/Job';
+import { Job as JobType } from '../../../../types/Job';
+
+type JobProps = Omit<JobType, 'id'>;
 
 export default function Job({ company, title, image, salary, meta }: JobProps) {
   const salaryText = useSalaryText(salary);

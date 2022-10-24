@@ -22,11 +22,14 @@ interface Job {
 }
 
 const createRandomJobs = (n: number) => {
-  return Array.from({ length: n }).map<Job>((_, idx) => ({
+  return Array.from({ length: n }).map<Job>(() => ({
+    id: faker.datatype.uuid(),
     company: faker.company.name(),
     title: faker.name.jobTitle(),
     image: {
-      url: `https://picsum.photos/id/${100 + idx}/200/200`,
+      url: `https://picsum.photos/200/200?random=1&rnd=${Math.floor(
+        Math.random() * 100000
+      )}`,
     },
     salary: {
       min: Math.floor(Math.random() * 2500 + 1200),
