@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 html {
-  background-color: theme('colors.primary.DEFAULT');
   font-family: 'Roboto', sans-serif;
 }

@@ -24,8 +24,8 @@ export default function Job({ company, title, image, salary, meta }: JobProps) {
   const salaryText = useSalaryText(salary);
 
   return (
-    <div className="text-[#57606D] cursor-pointer">
-      <div className="rounded-lg bg-white hover:bg-slate-100 transition ease-in-out">
+    <div className="text-text dark:text-text-dark cursor-pointer">
+      <div className="rounded-lg bg-white dark:bg-secondary-dark hover:bg-slate-100">
         <div className="relative px-5 py-6 pt-8 xl:flex">
           <div className="absolute -top-[25px] xl:static">
             <Image
@@ -61,7 +61,10 @@ export default function Job({ company, title, image, salary, meta }: JobProps) {
             <div className="mt-3">
               <div className="flex flex-wrap -mb-2">
                 {meta.badges.map((b) => (
-                  <div className="bg-primary mr-2 mb-2" key={b}>
+                  <div
+                    className="bg-primary dark:bg-primary-dark mr-2 mb-2"
+                    key={b}
+                  >
                     <div className="py-1 px-2">
                       <p className="text-xs font-bold">{b}</p>
                     </div>

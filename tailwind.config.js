@@ -10,7 +10,11 @@ module.exports = {
         },
         secondary: {
           DEFAULT: '#3B82F6',
-          dark: '#3B82F6',
+          dark: '#152040',
+        },
+        text: {
+          DEFAULT: '#57606D',
+          dark: 'white',
         },
       },
     },

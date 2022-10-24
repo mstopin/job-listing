@@ -16,7 +16,7 @@ export default function Document() {
         />
         <meta charSet="utf-8" />
       </Head>
-      <body>
+      <body className="bg-primary dark:bg-primary-dark">
         <Main />
         <NextScript />
       </body>

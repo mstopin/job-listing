@@ -20,12 +20,12 @@ export default function ColorModeSelector() {
 
   return (
     <button
-      className="relative w-[60px] h-[29px] bg-primary rounded-md"
+      className="relative w-[60px] h-[29px] rounded-md bg:primary outline outline-1 outline-text dark:outline-text-dark"
       aria-label={isDark ? 'Use light theme' : 'Use dark theme'}
       onClick={() => setDark(!isDark)}
     >
       <span
-        className={`absolute transition transition-all ease-in-out ${iconClass}`}
+        className={`absolute text-text dark:text-text-dark transition transition-all ease-in-out ${iconClass}`}
       >
         {!isDark && <IoMdSunny className="w-[25px] h-[25px]" />}
         {isDark && <IoMdMoon className="w-[25px] h-[25px]" />}

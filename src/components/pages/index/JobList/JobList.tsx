@@ -6,7 +6,7 @@ type JobListProps = PropsWithChildren<{
 
 export default function JobList({ numberResults, children }: JobListProps) {
   return (
-    <div className="text-[#57606D] mx-auto max-w-[768px] xl:max-w-[986px]">
+    <div className="text-text dark:text-text-dark mx-auto max-w-[768px] xl:max-w-[986px]">
       <div className="px-4">
         <p className="font-bold text-xl xl:text-2xl">
           <span>{numberResults} results</span>
