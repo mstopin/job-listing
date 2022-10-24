@@ -1,24 +1,7 @@
 import Image from 'next/future/image';
-import { useSalaryText } from '../../../../hooks/useSalaryText';
 
-interface JobProps {
-  company: string;
-  title: string;
-  image: {
-    url: string;
-  };
-  salary: {
-    min: number;
-    max: number;
-    currency: string;
-  };
-  meta: {
-    createdAt: string;
-    workTime: string;
-    location: string;
-    badges: string[];
-  };
-}
+import { useSalaryText } from '../../../../hooks/useSalaryText';
+import { Job as JobProps } from '../../../../types/Job';
 
 export default function Job({ company, title, image, salary, meta }: JobProps) {
   const salaryText = useSalaryText(salary);
