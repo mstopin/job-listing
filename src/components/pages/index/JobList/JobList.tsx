@@ -1,9 +1,25 @@
-import { useJobs } from '../../../../hooks/useJobs';
+import { useEffect } from 'react';
 
+import { useJobs } from '../../../../hooks/useJobs';
 import { Job } from '../Job';
 
 export default function JobList() {
   const jobs = useJobs();
+
+  useEffect(() => {
+    if (!jobs.hasMore || jobs.isLoading) return;
+    const listener = () => {
+      const scrollPercentage =
+        window.scrollY / (document.body.offsetHeight - window.innerHeight);
+      if (scrollPercentage > 0.85) {
+        jobs.loadMore();
+      }
+    };
+
+    window.addEventListener('scroll', listener);
+
+    return () => window.removeEventListener('scroll', listener);
+  }, [jobs]);
 
   return (
     <div className="text-text dark:text-text-dark mx-auto max-w-[768px] xl:max-w-[986px]">
