@@ -1,18 +1,28 @@
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 import { JobHero } from '../../components/pages/offer/JobHero';
 import { JobTechStack } from '../../components/pages/offer/JobTechStack';
 import { JobDescription } from '../../components/pages/offer/JobDescription';
-import { useJobs } from '../../hooks/useJobs';
+import { useJob } from '../../hooks/useJob';
 
 export default function Offer() {
-  const jobs = useJobs();
+  const router = useRouter();
+  const job = useJob({ id: (router.query.id as string) ?? '' });
 
-  if (!jobs.jobs.length) return null;
+  useEffect(() => {
+    if (!job) {
+      router.replace('/');
+    }
+  }, [router, job]);
+
+  if (!job) return null;
 
   return (
     <div>
-      <JobHero {...jobs.jobs[0]} />
-      <JobTechStack badges={jobs.jobs[0]!.meta.badges} />
-      <JobDescription description={jobs.jobs[0]!.description} />
+      <JobHero {...job} />
+      <JobTechStack badges={job.meta.badges} />
+      <JobDescription description={job.description} />
     </div>
   );
 }
