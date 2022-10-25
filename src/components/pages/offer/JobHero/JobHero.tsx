@@ -37,11 +37,11 @@ export default function JobHero({
     <div className="job-hero">
       <div className="p-4 text-white">
         <div className="w-[25px] h-[25px] bg-[rgba(0,0,0,0.5)] mb-4">
-          <div className="cursor-pointer">
-            <Link href="/">
+          <Link href="/">
+            <div className="cursor-pointer">
               <BsArrowLeftSquare size={25} />
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
         <div className="flex h-full items-center">
           <div className="grow">
@@ -82,7 +82,7 @@ export default function JobHero({
                 </div>
               </div>
             </div>
-            <div className="mt-6 font-medium">
+            <div className="mt-6 font-medium" data-testid="job-hero__salary">
               <JobHeroIconWithText
                 icon={<MdAttachMoney size={20} />}
                 text={salaryText}

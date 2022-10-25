@@ -38,13 +38,13 @@ describe('Job', () => {
     expect(screen.getByText('Company')).toBeInTheDocument();
   });
 
-  it("should render job's title", () => {
+  it('should render job title', () => {
     renderJob();
 
     expect(screen.getByText('Title')).toBeInTheDocument();
   });
 
-  it("should render job's salary", () => {
+  it('should render job salary', () => {
     renderJob();
 
     expect(screen.getByTestId('job__salary')).toBeInTheDocument();
