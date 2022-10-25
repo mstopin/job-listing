@@ -19,6 +19,12 @@ interface Job {
     location: string;
     badges: string[];
   };
+  description: {
+    sections: {
+      type: 'TEXT' | 'LIST';
+      data: any;
+    }[];
+  };
 }
 
 const createRandomJobs = (n: number) => {
@@ -45,6 +51,43 @@ const createRandomJobs = (n: number) => {
         Math.floor(Math.random() * 3)
       ],
       badges: ['JavaScript', 'TypeScript', 'MongoDB', 'RabbitMQ'],
+    },
+    description: {
+      sections: [
+        {
+          type: 'TEXT',
+          data: {
+            text: faker.lorem.paragraphs(2),
+          },
+        },
+        {
+          type: 'LIST',
+          data: {
+            title: 'Requirements',
+            entries: Array.from({ length: 7 }).map(() =>
+              faker.lorem.sentence()
+            ),
+          },
+        },
+        {
+          type: 'LIST',
+          data: {
+            title: 'Nice to have',
+            entries: Array.from({ length: 3 }).map(() =>
+              faker.lorem.sentence()
+            ),
+          },
+        },
+        {
+          type: 'LIST',
+          data: {
+            title: 'Responsibilities',
+            entries: Array.from({ length: 5 }).map(() =>
+              faker.lorem.sentence()
+            ),
+          },
+        },
+      ],
     },
   }));
 };
