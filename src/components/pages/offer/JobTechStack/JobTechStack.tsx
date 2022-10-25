@@ -1,5 +1,7 @@
 import { Job as JobType } from '../../../../types/Job';
 
+import { JobSection } from '../JobSection';
+
 function Tech({ name }: { name: string }) {
   return (
     <div>
@@ -15,19 +17,12 @@ type JobTechStackProps = {
 
 export default function JobTechStack({ badges }: JobTechStackProps) {
   return (
-    <div className="text-text dark:text-text-dark mt-4 bg-white dark:bg-secondary-dark">
-      <div className="border-b border-[#f3f6f8] border-solid">
-        <div className="px-6 py-2">
-          <p className="text-lg font-medium">Tech stack</p>
-        </div>
+    <JobSection title="Tech stack">
+      <div className="grid grid-cols-2 gap-y-5">
+        {badges.map((b) => (
+          <Tech name={b} key={b} />
+        ))}
       </div>
-      <div className="px-6 py-4">
-        <div className="grid grid-cols-2 gap-y-5">
-          {badges.map((b) => (
-            <Tech name={b} key={b} />
-          ))}
-        </div>
-      </div>
-    </div>
+    </JobSection>
   );
 }

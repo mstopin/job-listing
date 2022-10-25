@@ -20,7 +20,7 @@ function JobHeroIconWithText({
   return (
     <div className="flex items-center">
       <div className="mr-1.5">{icon}</div>
-      <p>{text}</p>
+      <p className="xl:text-base">{text}</p>
     </div>
   );
 }
@@ -35,7 +35,7 @@ export default function JobHero({
   const salaryText = useSalaryText(salary);
 
   return (
-    <div className="job-hero">
+    <div className="job-hero max-w-[1056px] mx-auto">
       <div className="p-4 text-white">
         <div className=" h-[25px] mb-4">
           <div className="flex justify-between items-center">
@@ -61,20 +61,20 @@ export default function JobHero({
                 <Image
                   src={image.url}
                   alt={`Logo of ${company}`}
-                  width="100"
-                  height="100"
-                  className="rounded-full w-[100px] h-[100px]"
+                  width="150"
+                  height="150"
+                  className="rounded-full w-[100px] h-[100px] xl:w-[150px] xl:h-[150px]"
                 />
               </div>
               <div className="ml-5 grow">
                 <div className="h-full flex flex-col justify-center">
                   <div>
-                    <p className="font-medium text-sm">{company}</p>
-                    <p className="font-bold text-lg">{title}</p>
+                    <p className="font-medium text-sm xl:text-lg">{company}</p>
+                    <p className="font-bold text-lg xl:text-3xl">{title}</p>
                   </div>
-                  <div className="mt-2 self-start">
+                  <div className="mt-2 self-start xl:mt-4">
                     <div className="text-sm">
-                      <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-2">
+                      <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-2 xl:grid-cols-3 xl:grid-rows-1">
                         <JobHeroIconWithText
                           icon={<MdWorkOutline size={20} />}
                           text={meta.workTime}

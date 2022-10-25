@@ -23,6 +23,9 @@ describe('JobHero', () => {
           createdAt: 'createdAt',
           badges: [],
         }}
+        description={{
+          sections: [],
+        }}
       />
     );
 
