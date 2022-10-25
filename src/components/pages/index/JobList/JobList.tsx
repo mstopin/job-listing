@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 import { useJobs } from '../../../../hooks/useJobs';
 import { Job } from '../Job';
@@ -33,9 +34,11 @@ export default function JobList() {
       </div>
       <div className="mt-10">
         {jobs.jobs.map((j) => (
-          <div className="mb-12 xl:mb-6" key={j.id}>
-            <Job {...j} />
-          </div>
+          <Link href={`/offers/${j.id}`} key={j.id}>
+            <div className="mb-12 xl:mb-6" key={j.id}>
+              <Job {...j} />
+            </div>
+          </Link>
         ))}
       </div>
     </div>

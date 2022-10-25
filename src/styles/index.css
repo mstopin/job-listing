@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .job-hero {
+    background: url('/hero-bg.png') center center / cover no-repeat
+      theme('colors.secondary.DEFAULT');
+  }
+}
+
 html {
   font-family: 'Roboto', sans-serif;
 }
