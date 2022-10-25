@@ -35,6 +35,7 @@ export default function ColorModeSelector({
       }`}
       aria-label={isDark ? 'Use light theme' : 'Use dark theme'}
       onClick={() => setDark(!isDark)}
+      data-testid="color-mode-selector"
     >
       <span
         className={`absolute transition transition-all ease-in-out ${iconClassName} ${userIconClassName}`}
