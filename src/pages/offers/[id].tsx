@@ -1,5 +1,5 @@
 import { JobHero } from '../../components/pages/offer/JobHero';
-import JobTechStack from '../../components/pages/offer/JobTechStack/JobTechStack';
+import { JobTechStack } from '../../components/pages/offer/JobTechStack';
 import { useJobs } from '../../hooks/useJobs';
 
 export default function Offer() {
