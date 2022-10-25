@@ -1,11 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import JobHero from './JobHero';
 
 describe('JobHero', () => {
-  const renderJob = () =>
-    render(
+  const renderJob = async () => {
+    const result = render(
       <JobHero
         company="company"
         title="title"
@@ -29,16 +29,22 @@ describe('JobHero', () => {
       />
     );
 
-  it('should render company name', () => {
+    await waitFor(() => screen.getByTestId('color-mode-selector'));
+    return result;
+  };
+
+  it('should render company name', async () => {
     renderJob();
 
     expect(screen.getByText('company')).toBeInTheDocument();
   });
 
-  it('should render company logo', () => {
+  it('should render company logo', async () => {
     renderJob();
 
-    expect(screen.getByAltText('Logo of company')).toBeInTheDocument();
+    expect(
+      await waitFor(() => screen.getByAltText('Logo of company'))
+    ).toBeInTheDocument();
   });
 
   it('should render job title', () => {
@@ -69,5 +75,11 @@ describe('JobHero', () => {
     renderJob();
 
     expect(screen.getByTestId('job-hero__salary')).toBeInTheDocument();
+  });
+
+  it('should render color mode selector', async () => {
+    renderJob();
+
+    expect(screen.getByTestId('color-mode-selector')).toBeInTheDocument();
   });
 });

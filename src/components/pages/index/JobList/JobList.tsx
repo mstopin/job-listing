@@ -12,7 +12,10 @@ export default function JobList() {
     const listener = () => {
       const scrollPercentage =
         window.scrollY / (document.body.offsetHeight - window.innerHeight);
-      if (scrollPercentage > 0.85) {
+      if (
+        document.body.offsetHeight < window.innerHeight ||
+        scrollPercentage > 0.85
+      ) {
         jobs.loadMore();
       }
     };
@@ -32,7 +35,7 @@ export default function JobList() {
           <div className="w-full h-[1px] border-b border-[#989ea7] border-solid" />
         </div>
       </div>
-      <div className="mt-10">
+      <div className="mt-10" data-testid="job-list__jobs">
         {jobs.jobs.map((j) => (
           <Link href={`/offers/${j.id}`} key={j.id}>
             <div className="mb-12 xl:mb-6" key={j.id}>

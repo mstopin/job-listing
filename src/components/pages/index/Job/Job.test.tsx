@@ -23,6 +23,9 @@ describe('Job', () => {
           location: 'location',
           badges: ['badge1', 'badge2'],
         }}
+        description={{
+          sections: [],
+        }}
       />
     );
 
