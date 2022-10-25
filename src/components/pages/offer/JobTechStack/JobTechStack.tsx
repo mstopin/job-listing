@@ -15,7 +15,7 @@ type JobTechStackProps = {
 
 export default function JobTechStack({ badges }: JobTechStackProps) {
   return (
-    <div className="text-text mt-4 bg-white">
+    <div className="text-text dark:text-text-dark mt-4 bg-white dark:bg-secondary-dark">
       <div className="border-b border-[#f3f6f8] border-solid">
         <div className="px-6 py-2">
           <p className="text-lg font-medium">Tech stack</p>

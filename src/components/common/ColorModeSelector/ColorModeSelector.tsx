@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react';
 import { IoMdSunny, IoMdMoon } from 'react-icons/io';
 
-export default function ColorModeSelector() {
+export default function ColorModeSelector({
+  containerClassName: userContainerClassName,
+  iconClassName: userIconClassName,
+}: {
+  containerClassName?: string;
+  iconClassName?: string;
+}) {
   const [isDark, setDark] = useState(false);
-  const iconClass = !isDark ? 'top-[2px] left-[5px]' : 'top-[2px] left-[30px]';
+  const iconClassName = !isDark
+    ? 'top-[2px] left-[5px]'
+    : 'top-[2px] left-[30px]';
 
   useEffect(() => {
     const classList = document.querySelector('html')?.classList;
@@ -20,12 +28,14 @@ export default function ColorModeSelector() {
 
   return (
     <button
-      className="relative w-[60px] h-[29px] rounded-md bg:primary outline outline-1 outline-text dark:outline-text-dark"
+      className={`relative w-[60px] h-[29px] rounded-md ${
+        userContainerClassName ?? ''
+      }`}
       aria-label={isDark ? 'Use light theme' : 'Use dark theme'}
       onClick={() => setDark(!isDark)}
     >
       <span
-        className={`absolute text-text dark:text-text-dark transition transition-all ease-in-out ${iconClass}`}
+        className={`absolute transition transition-all ease-in-out ${iconClassName} ${userIconClassName}`}
       >
         {!isDark && <IoMdSunny className="w-[25px] h-[25px]" />}
         {isDark && <IoMdMoon className="w-[25px] h-[25px]" />}

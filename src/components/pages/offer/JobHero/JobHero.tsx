@@ -6,6 +6,7 @@ import { IoLocationOutline } from 'react-icons/io5';
 
 import { Job as JobType } from '../../../../types/Job';
 import { useSalaryText } from '../../../../hooks/useSalaryText';
+import { ColorModeSelector } from '../../../common/ColorModeSelector';
 
 type JobHeroProps = Omit<JobType, 'id'>;
 
@@ -36,12 +37,22 @@ export default function JobHero({
   return (
     <div className="job-hero">
       <div className="p-4 text-white">
-        <div className="w-[25px] h-[25px] bg-[rgba(0,0,0,0.5)] mb-4">
-          <Link href="/">
-            <div className="cursor-pointer">
-              <BsArrowLeftSquare size={25} />
+        <div className=" h-[25px] mb-4">
+          <div className="flex justify-between items-center">
+            <div className="w-[25px] bg-[rgba(0,0,0,0.5)]">
+              <Link href="/">
+                <div className="cursor-pointer">
+                  <BsArrowLeftSquare size={25} />
+                </div>
+              </Link>
             </div>
-          </Link>
+            <div>
+              <ColorModeSelector
+                containerClassName="bg:primary outline outline-1 outline-white"
+                iconClassName="text-white"
+              />
+            </div>
+          </div>
         </div>
         <div className="flex h-full items-center">
           <div className="grow">
