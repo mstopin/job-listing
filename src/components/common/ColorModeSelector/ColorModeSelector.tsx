@@ -20,10 +20,14 @@ export default function ColorModeSelector({
     }
 
     if (!isDark) {
-      classList.remove('dark');
+      if (classList.contains('dark')) {
+        classList.remove('dark');
+      }
       localStorage.removeItem('isDark');
-    } else if (!classList.contains('dark')) {
-      classList.add('dark');
+    } else {
+      if (!classList.contains('dark')) {
+        classList.add('dark');
+      }
       localStorage.setItem('isDark', 'true');
     }
   }, [isDark]);
