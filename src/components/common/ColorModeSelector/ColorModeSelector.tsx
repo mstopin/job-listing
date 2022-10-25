@@ -8,7 +8,7 @@ export default function ColorModeSelector({
   containerClassName?: string;
   iconClassName?: string;
 }) {
-  const [isDark, setDark] = useState(false);
+  const [isDark, setDark] = useState(!!localStorage.getItem('isDark'));
   const iconClassName = !isDark
     ? 'top-[2px] left-[5px]'
     : 'top-[2px] left-[30px]';
@@ -21,8 +21,10 @@ export default function ColorModeSelector({
 
     if (!isDark) {
       classList.remove('dark');
+      localStorage.removeItem('isDark');
     } else if (!classList.contains('dark')) {
       classList.add('dark');
+      localStorage.setItem('isDark', 'true');
     }
   }, [isDark]);
 
