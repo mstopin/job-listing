@@ -10,7 +10,9 @@ export default function JobSection({ title, children }: JobSectionProps) {
           <p className="text-lg font-medium">{title}</p>
         </div>
       </div>
-      <div className="px-6 py-4 xl:py-6">{children}</div>
+      <div className="px-6 py-4 xl:py-6" data-testid="job-section__children">
+        {children}
+      </div>
     </div>
   );
 }
